@@ -1,1 +1,26 @@
-<p style="display: none;">Applied access right</p>
+
+<div>
+
+    <table class="table table-striped" style="border-radius: 10px;">
+        <caption>Table of Access rights on the page "{{functionId}}/{{mode}}"</caption>
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Component ID</th>
+                <th scope="col">State</th>
+                <th scope="col">Can be visible?</th>
+                <th scope="col">Can be enable?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let accessRight of (accessRights$ | async)">
+                <td scope="row">{{accessRight.componentId}}</td>
+                <td>{{accessRight.state}}</td>
+                <td>{{(accessRight.isVisible==1)?"Yes":"No"}}</td>
+                <td>{{(accessRight.isEnable==1)?"Yes":"No"}}</td>
+            </tr>
+        </tbody>
+    </table>
+        <ul>
+
+    </ul>
+</div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EcTextfieldComponent } from './ec-textfield/ec-textfield.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { EcAccessrightComponent } from './ec-accessright/ec-accessright.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EcAccessrightComponent } from './ec-accessright/ec-accessright.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
