@@ -3,26 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-export class EcAccessRight {   
-  componentId: string = "";
-  state: string = "";
-  isVisible: number = 0;
-  isEnable: number = 0;
+export class LoginResult {   
+  userId: string = "";
+  result: number = 0;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class EcAccessRightService {
+export class LoginService {
   private domain = 'https://localhost:44384';
 
   constructor(private http: HttpClient) { }
 
-  getAccessRight(functionId: string, mode: string): Observable<EcAccessRight[]>{
-    var apiUrl = this.domain.concat("/api/AccessRights/", functionId, "/", mode, "/*");
-    console.log(apiUrl);
-    return this.http.get<EcAccessRight[]>(apiUrl).pipe(
-      catchError(this.handleError<EcAccessRight[]>("Init AccessRight", []))
+  getLoginResult(userId: string, password: string): Observable<LoginResult[]>{
+    var apiUrl = this.domain.concat("/api/LoginResults/", userId, "/", password);
+    console.log(apiUrl);    
+    return this.http.get<LoginResult[]>(apiUrl).pipe(
+      catchError(this.handleError<LoginResult[]>("Check Login", []))
     );
   }
 
@@ -35,5 +33,3 @@ export class EcAccessRightService {
   }
 
 }
-
-

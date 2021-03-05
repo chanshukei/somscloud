@@ -8,6 +8,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EcButtonComponent } from './ec-button/ec-button.component';
 import { EcPasswordComponent } from './ec-password/ec-password.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
+import { EcImagebuttonComponent } from './ec-imagebutton/ec-imagebutton.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { EcPasswordComponent } from './ec-password/ec-password.component';
     EcTextfieldComponent,
     LoginFormComponent,
     EcButtonComponent,
-    EcPasswordComponent
+    EcPasswordComponent,
+    MainMenuComponent,
+    EcImagebuttonComponent
   ],
   imports: [
     BrowserModule,
