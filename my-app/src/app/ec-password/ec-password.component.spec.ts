@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EcAccessrightComponent } from './ec-accessright.component';
+import { EcPasswordComponent } from './ec-password.component';
 
-describe('EcAccessrightComponent', () => {
-  let component: EcAccessrightComponent;
-  let fixture: ComponentFixture<EcAccessrightComponent>;
+describe('EcPasswordComponent', () => {
+  let component: EcPasswordComponent;
+  let fixture: ComponentFixture<EcPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EcAccessrightComponent ]
+      declarations: [ EcPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EcAccessrightComponent);
+    fixture = TestBed.createComponent(EcPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,43 +1,34 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { EcAccessRight } from '../ec-access-right.service';
 import { Observable} from 'rxjs';
 
 @Component({
-  selector: 'ec-textfield',
-  template:   `<div *ngIf="isVisible">
-                  <label class="form-label" for="{{id}}">{{label}}</label>
-                  <input  class="form-control" type="text" id="{{id}}" maxLength="{{maxLength}}" 
-                          [disabled]="!isEnable ? 'disabled': null"
-                          (keyup)="updateValue($event)"
-                          [value]="value"/>
-              </div>`,
-  styleUrls: ['./ec-textfield.component.sass']
+  selector: 'ec-button',
+  template: `<button  *ngIf="isVisible" class="btn btn-dark" type="button"
+                      [disabled]="!isEnable ? 'disabled': null" (click)="onButtonClicked()">{{name}}</button>`,
+  styleUrls: ['./ec-button.component.sass']
 })
+export class EcButtonComponent implements OnChanges {
 
-export class EcTextfieldComponent implements OnChanges{
-  
   isVisible: boolean = false;
   isEnable: boolean = false;
-  value: string = "";
 
-  @Input() 
+  @Input()
   id: string = "";
 
   @Input()
-  label: string = "";
-
-  @Input()
-  maxLength: number = 0;
+  name: string = "";
 
   @Input()
   accessRights: Observable<EcAccessRight[]> = new Observable<EcAccessRight[]>();
 
-  clear(){
-    this.value = "";
-  }
+  @Output()
+  ecClick = new EventEmitter<string>();
 
-  updateValue(event: any){
-    this.value = event.target.value;
+  constructor() { }
+
+  onButtonClicked(){
+    this.ecClick.emit();
   }
 
   ngOnChanges(changes: SimpleChanges) {

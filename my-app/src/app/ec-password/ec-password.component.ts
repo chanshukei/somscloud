@@ -3,19 +3,18 @@ import { EcAccessRight } from '../ec-access-right.service';
 import { Observable} from 'rxjs';
 
 @Component({
-  selector: 'ec-textfield',
+  selector: 'ec-password',
   template:   `<div *ngIf="isVisible">
                   <label class="form-label" for="{{id}}">{{label}}</label>
-                  <input  class="form-control" type="text" id="{{id}}" maxLength="{{maxLength}}" 
+                  <input  class="form-control" type="password" id="{{id}}" maxLength="{{maxLength}}" 
                           [disabled]="!isEnable ? 'disabled': null"
                           (keyup)="updateValue($event)"
                           [value]="value"/>
               </div>`,
-  styleUrls: ['./ec-textfield.component.sass']
+  styleUrls: ['./ec-password.component.sass']
 })
+export class EcPasswordComponent implements OnChanges {
 
-export class EcTextfieldComponent implements OnChanges{
-  
   isVisible: boolean = false;
   isEnable: boolean = false;
   value: string = "";
@@ -32,12 +31,12 @@ export class EcTextfieldComponent implements OnChanges{
   @Input()
   accessRights: Observable<EcAccessRight[]> = new Observable<EcAccessRight[]>();
 
-  clear(){
-    this.value = "";
-  }
-
   updateValue(event: any){
     this.value = event.target.value;
+  }
+
+  clear(){
+    this.value = "";
   }
 
   ngOnChanges(changes: SimpleChanges) {

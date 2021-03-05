@@ -1,12 +1,23 @@
-<ec-accessright functionId="Login" mode="default"></ec-accessright>
 <form>
-    <h1>Login</h1>
+    <h1 i18n>Login</h1>
     <div class="row">
         <div class="col-md-12">
-            <ec-textfield id="username" label="User name" [maxLength]=20></ec-textfield>
+            <ec-textfield   #username
+                            id="username" i18n-label label="User name" 
+                            [maxLength]=10 [accessRights]="accessRights"></ec-textfield>
         </div>
         <div class="col-md-12">
-            <ec-textfield id="password" label="Password" [maxLength]=20></ec-textfield>
+            <ec-password   #password
+                            id="password" i18n-label label="Password" 
+                            [maxLength]=15 [accessRights]="accessRights"></ec-password>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ec-button  id="signIn" i18n-name name="Reset" [accessRights]="accessRights"
+                        (ecClick)="reset()"></ec-button>
+            <ec-button  id="signIn" i18n-name name="Sign In" [accessRights]="accessRights"
+                        (ecClick)="login()"></ec-button>
         </div>
     </div>
 </form>

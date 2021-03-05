@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EcTextfieldComponent } from './ec-textfield/ec-textfield.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { EcAccessrightComponent } from './ec-accessright/ec-accessright.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EcButtonComponent } from './ec-button/ec-button.component';
+import { EcPasswordComponent } from './ec-password/ec-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EcTextfieldComponent,
     LoginFormComponent,
-    EcAccessrightComponent
+    EcButtonComponent,
+    EcPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
