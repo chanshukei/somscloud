@@ -1,0 +1,70 @@
+<h2 i18n>Place Order</h2>
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <ec-readonlytext id="status" label="Status" 
+            value="Not saved" [accessRights]="accessRights"></ec-readonlytext>
+        </div>
+        <div class="col-md-6">
+            <ec-datepicker id="invoiceDate" label="Invoice Date" 
+            [accessRights]="accessRights"></ec-datepicker>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <ec-readonlytext id="appInvoiceNo" label="App Invoice No." 
+            value="" [accessRights]="accessRights"></ec-readonlytext>
+        </div>
+        <div class="col-md-4">
+            <ec-readonlytext id="erpInvoiceNo" label="ERP Invoice No." 
+            value="" [accessRights]="accessRights"></ec-readonlytext>
+        </div>
+        <div class="col-md-4">
+            <ec-readonlytext id="location" label="Location" 
+            value="" [accessRights]="accessRights"></ec-readonlytext>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ec-select id="customerNo" label="Customer No." 
+            value="" [accessRights]="accessRights"></ec-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ec-select id="quotationNo" label="Quotation No." 
+            value="" [accessRights]="accessRights"></ec-select>
+        </div>
+        <div class="col-md-6">
+            <ec-textfield id="customerPo" label="Customer PO" 
+            value="" [accessRights]="accessRights"></ec-textfield>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ec-readonlytext id="salesman" label="Salesman ID" 
+            value="" [accessRights]="accessRights"></ec-readonlytext>
+        </div>
+        <div class="col-md-6">
+            <ec-textfield id="invoiceAmount" label="Invoice Amount" 
+            value="" [accessRights]="accessRights"></ec-textfield>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ec-textfield id="description" label="Description" 
+            value="" [accessRights]="accessRights"></ec-textfield>
+        </div>
+        <div class="col-md-6">
+            <ec-select id="hashTag" label="Hash Tag" 
+            value="" [accessRights]="accessRights"></ec-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ec-textfield id="deliveryAddress" label="Delivery Address" 
+            value="" [accessRights]="accessRights"></ec-textfield>
+        </div>
+    </div>
+
+</div>

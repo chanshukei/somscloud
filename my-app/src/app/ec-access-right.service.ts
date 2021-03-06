@@ -19,7 +19,12 @@ export class EcAccessRightService {
   constructor(private http: HttpClient) { }
 
   getAccessRight(functionId: string, mode: string): Observable<EcAccessRight[]>{
-    var apiUrl = this.domain.concat("/api/AccessRights/", functionId, "/", mode, "/*");
+    var userId = sessionStorage.getItem("userId");
+    if(userId=="" || userId==undefined){
+      userId = "*";
+    }
+
+    var apiUrl = this.domain.concat("/api/AccessRights/", functionId, "/", mode, "/", userId);
     console.log(apiUrl);
     return this.http.get<EcAccessRight[]>(apiUrl).pipe(
       catchError(this.handleError<EcAccessRight[]>("Init AccessRight", []))

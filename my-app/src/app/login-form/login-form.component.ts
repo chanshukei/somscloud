@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { EcTextfieldComponent } from '../ec-textfield/ec-textfield.component';
 import { EcPasswordComponent } from '../ec-password/ec-password.component';
 import { LoginService } from '../login.service';
-import { ActivatedRoute, Route, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',

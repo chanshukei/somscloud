@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderSummaryService } from '../ordersummary.service';
 
 @Component({
@@ -6,9 +7,16 @@ import { OrderSummaryService } from '../ordersummary.service';
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.sass']
 })
-export class MainMenuComponent {
+export class MainMenuComponent implements OnInit{
 
-  constructor(private orderSummaryService: OrderSummaryService) { }
+  constructor(
+    private orderSummaryService: OrderSummaryService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
+  ngOnInit(){
+    this.orderSummaryService.getOrderSummaries('P');
+  }
 
   searchOrder(){
     console.log("Clicked Search Order");
@@ -16,6 +24,7 @@ export class MainMenuComponent {
 
   placeOrder(){
     console.log("Clicked Place Order");
+    this.router.navigate(['../placeorder'], {relativeTo: this.route});
   }
 
 }

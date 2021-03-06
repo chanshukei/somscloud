@@ -3,7 +3,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ec-imagebutton',
   template: `<button class="btn btn-outline-primary btn-lg" 
-                type="button" (click)="onButtonClicked">
+                type="button" (click)="onButtonClicked()">
                 <span><img src="/assets/images/{{image}}.png"></span>
                 <br />
                 <span>{{text}}</span>
