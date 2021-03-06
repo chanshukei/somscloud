@@ -10,6 +10,7 @@ import { EcButtonComponent } from './ec-button/ec-button.component';
 import { EcPasswordComponent } from './ec-password/ec-password.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { EcImagebuttonComponent } from './ec-imagebutton/ec-imagebutton.component';
+import { EcDatatableComponent } from './ec-datatable/ec-datatable.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EcImagebuttonComponent } from './ec-imagebutton/ec-imagebutton.componen
     EcButtonComponent,
     EcPasswordComponent,
     MainMenuComponent,
-    EcImagebuttonComponent
+    EcImagebuttonComponent,
+    EcDatatableComponent
   ],
   imports: [
     BrowserModule,

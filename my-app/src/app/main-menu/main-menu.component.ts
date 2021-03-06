@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderSummaryService } from '../ordersummary.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent {
 
-  constructor() { }
+  constructor(private orderSummaryService: OrderSummaryService) { }
 
   searchOrder(){
     console.log("Clicked Search Order");
