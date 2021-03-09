@@ -1,11 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { EcAccessRight } from '../ec-access-right.service';
 import { Observable} from 'rxjs';
-
-export class EcSelectOption{
-  name: string = "";
-  value: string = "";
-}
+import { EcSelectOption, EcSelectOptionService } from '../ec-selectoption.service'
 
 @Component({
   selector: 'ec-select',
@@ -36,13 +32,24 @@ export class EcSelectComponent implements OnInit, OnChanges {
   @Input()
   accessRights: Observable<EcAccessRight[]> = new Observable<EcAccessRight[]>();
 
+  @Input()
+  optionType: string = "";
+
   isVisible: boolean = false;
   isEnable: boolean = false;
   options: EcSelectOption[] = new Array();
   
-  constructor() { }
+  constructor(private selectOptionService: EcSelectOptionService) { }
 
   ngOnInit(): void {
+    var userId = sessionStorage.getItem('userId');
+    if(userId==null){
+      userId = "";
+    }
+    var self = this;
+    this.selectOptionService.getSelectOptions(userId, this.optionType).subscribe(e => {
+      self.options = e;    
+    });
   }
 
   clear(){
