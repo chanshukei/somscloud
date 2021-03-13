@@ -1,0 +1,11 @@
+<div *ngIf="isVisible">
+    <label class="form-label" for="{{id}}">{{label}}</label>
+    <select  class="form-select" id="{{id}}" 
+            [disabled]="!isEnable ? 'disabled': null"
+            (change)="updateValue($event)">
+        <option value="" i18n>Please select</option>
+        <option *ngFor="let opt of options" value="{{opt.value}}">
+          {{opt.name}}
+        </option>
+    </select>
+</div>

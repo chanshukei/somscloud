@@ -16,8 +16,9 @@ export class LoginFormComponent implements OnInit {
   @ViewChild('username') username: EcTextfieldComponent = new EcTextfieldComponent();
   @ViewChild('password') password: EcPasswordComponent = new EcPasswordComponent();
 
-  accessRights: Observable<EcAccessRight[]> = new Observable<EcAccessRight[]>();
-  constructor(
+  accessRights: Observable<EcAccessRight[]> = new Observable();
+
+  constructor(    
     private accessRightService: EcAccessRightService,
     private loginService: LoginService,
     private router: Router,

@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
-export class EcSelectOption{
-  name: string = "";
-  value: string = "";
+export class Customer {   
+  customerNo: string = "";
+  englishName: string = "";
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class EcSelectOptionService {
+export class CustomerService {
+
   private domain = 'https://localhost:44384';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getSelectOptions(userId: string, optionType: string):Observable<EcSelectOption[]>{
-    var apiUrl = this.domain.concat("/api/SelectOptions/", optionType, "/", userId);
+  getCustomers(): Observable<Customer[]>{
+    var userId: string = sessionStorage.getItem("userId") ?? "";
+    var apiUrl = this.domain.concat("/api/Customers/", userId);
     console.log(apiUrl);    
-    return this.http.get<EcSelectOption[]>(apiUrl).pipe(
-      catchError(this.handleError<EcSelectOption[]>("Get Select Option", []))
+    return this.http.get<Customer[]>(apiUrl).pipe(
+      catchError(this.handleError<Customer[]>("Get Customer", []))
     );
   }
 
@@ -31,4 +33,5 @@ export class EcSelectOptionService {
       return of(result as T);
     };
   }
+
 }

@@ -14,6 +14,9 @@ import { PlaceOrderComponent } from './place-order/place-order.component';
 import { EcSelectComponent } from './ec-select/ec-select.component';
 import { EcDatepickerComponent } from './ec-datepicker/ec-datepicker.component';
 import { EcReadonlyTextComponent } from './ec-readonlytext/ec-readonlytext.component';
+import { EcAccessrightComponent } from './ec-accessright/ec-accessright.component';
+import { EcAutocompleteComponent } from './ec-autocomplete/ec-autocomplete.component';
+import { MatchedOptionsPipe } from './ec-autocomplete/matched-options.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { EcReadonlyTextComponent } from './ec-readonlytext/ec-readonlytext.compo
     PlaceOrderComponent,
     EcSelectComponent,
     EcDatepickerComponent,
-    EcReadonlyTextComponent
+    EcReadonlyTextComponent,
+    EcAccessrightComponent,
+    EcAutocompleteComponent,
+    MatchedOptionsPipe
   ],
   imports: [
     BrowserModule,

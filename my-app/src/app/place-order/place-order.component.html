@@ -26,8 +26,9 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <ec-select id="customerNo" label="Customer No." 
-            value="" [accessRights]="accessRights" optionType="Customer"></ec-select>
+            <ec-autocomplete #customerNo id="customerNo" label="Customer No." 
+            [maxItems]="50"
+            value="" [accessRights]="accessRights"></ec-autocomplete>
         </div>
     </div>
     <div class="row">
