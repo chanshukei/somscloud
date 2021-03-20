@@ -1,22 +1,22 @@
 <div *ngIf="isVisible">
   <label class="form-label" for="{{id}}">{{label}}</label>
     <input  id="{{id}}" class="form-control" type="text" readonly
-            (change)="updateValue($event)" (click)="popupOptionList()"
-            [value]="_name" placeholder="Please click to select"/>    
-    <div *ngIf="showOptionList">      
+            (click)="popupOptionList()"
+            [value]="_name" placeholder="Please click to select"/>
+    <div *ngIf="showOptionList">
       <div class="filterBox">
-        <input  type="text" (keyup)="changeFilterText($any($event.target).value)" 
+        <input  type="text" (keyup)="changeFilterText($any($event.target).value)"
                 placeholder="Filter...">
       </div>
       <ul style="height: 200px; overflow-y: scroll;">
-        <li *ngFor="let opt of (options | matchedOptions: filterText: maxItems: filterCount)" value="{{opt.value}}" 
+        <li *ngFor="let opt of (options | matchedOptions: filterText: maxItems: filterCount)" value="{{opt.value}}"
             (click)="selectOption(opt.value, opt.name)">
           {{opt.name}}
         </li>
-      </ul> 
+      </ul>
       <p>Found {{filterCount.count}} items
         <span *ngIf="filterCount.count>maxItems"> and show first {{maxItems}} items only</span>
-      </p>     
+      </p>
     </div>
 
 </div>

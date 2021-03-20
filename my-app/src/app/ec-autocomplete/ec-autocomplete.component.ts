@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, OnInit, Output, EventEmitter } from '@angular/core';
 import { EcAccessrightComponent } from '../ec-accessright/ec-accessright.component';
 import { EcSelectOption } from '../ec-select/ec-select.component';
 
@@ -19,6 +19,9 @@ export class EcAutocompleteComponent extends EcAccessrightComponent {
   @Input()
   maxItems: number = 100;
 
+  @Output()
+  ecChange = new EventEmitter<string>();
+
   showOptionList: boolean = false;
   options: EcSelectOption[] = new Array();
   _value: string = "";
@@ -26,7 +29,7 @@ export class EcAutocompleteComponent extends EcAccessrightComponent {
   filterText: string = "";
   filterCount = {count: 0};
 
-  changeFilterText(value: string){    
+  changeFilterText(value: string){
     this.filterText = value;
   }
 
@@ -43,14 +46,11 @@ export class EcAutocompleteComponent extends EcAccessrightComponent {
     this._name = pName;
     this.showOptionList = false;
     this.filterText = "";
+    this.ecChange.emit();
   }
 
   clear(){
     this.value = "";
-  }
-
-  updateValue(event: any){
-    this.value = event.target.value;
   }
 
   updateOptions(pOptions: EcSelectOption[]){
